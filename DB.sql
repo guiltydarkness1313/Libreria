@@ -1,0 +1,9 @@
+CREATE TABLE `book` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `author` VARCHAR(150) NOT NULL,
+  `category` VARCHAR(45) NOT NULL,
+  `date` DATE NOT NULL,
+  `image` VARCHAR(200) NOT NULL,
+  `summary` VARCHAR(450) NOT NULL,
+  PRIMARY KEY (`id`))
