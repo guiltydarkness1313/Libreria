@@ -1,0 +1,15 @@
+extends layout
+block content
+    div.container
+        h1.display-1.text-center    Detalles
+    div.container
+        div.border.mb-5.col-lg-9.text-center
+            form.form-group.row
+                img.img-thumbnail(src="/images/"+item.image style="width:250px")
+                h1=item.name
+
+                label.col-form-label(for="name")   Autor:
+                input.form-control(type="text" name="name" id="name" value=item.author)
+                h2="Categoria: "+item.category
+                h2  Resumen:
+                p=item.summary

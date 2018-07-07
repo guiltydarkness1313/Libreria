@@ -1,0 +1,65 @@
+extends layout
+block content
+    div.container-fluid.text-center.style
+        br
+        br
+        br
+        h1.border-style.display-1.font-weight-bold.text-white  Administración de libros
+    div.row.mt-5
+        div.col
+            div.container.border.mx-2.my-2
+                h1 Añadir libro
+                a.btn.btn-info(role="button" href="/new")   Agregar
+                br
+                br
+        div.col-9.col-sm-9.col-md-9.col-lg-9
+            table.table.table-bordered
+                thead.thead-dark
+                    tr
+                        th  Nombre
+                        th  Autor
+                        th  Categoría
+                        th  Fecha de publicación
+                        th  Imagen
+                        th  Resumen
+                        th  Editar
+                        th  Borrar
+                tbody
+                    each item in result
+                        tr
+                            td=item.name
+                            td=item.author
+                            td=item.category
+                            if item.date.getMonth()<10
+                                td=item.date.getDate()+"/0"+item.date.getMonth()+"/"+item.date.getFullYear()
+                            else if item.date.getDate()<10
+                                td="0"+item.date.getDate()+"/"+item.date.getMonth()+"/"+item.date.getFullYear()
+                            else if item.date.getDate()<10 && item.date.getMonth()<10
+                                td="0"+item.date.getDate()+"/0"+item.date.getMonth()+"/"+item.date.getFullYear()
+                            else
+                                td=item.date.getDate()+"/"+item.date.getMonth()+"/"+item.date.getFullYear()
+                            td
+                                img.img-thumbnail(src="/images/"+item.image style="width:150px")
+                            if item.summary
+                                td  Si
+                            else
+                                td No
+                            td
+                                a.btn.btn-success(role="button" href="/detail?id="+item.id) Editar
+                            td
+                                button.btn.btn-danger.delete(type="button" data-toggle="modal" data-target="#deleteModal" value=item.id) Eliminar
+        div.col
+            div.container
+    div
+        #deleteModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='deleteModalLabel' style='display: none;' aria-hidden='true')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        h5#deleteModalLabel.modal-title ¿Quieres eliminar este libro?
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') x
+                    .modal-footer
+                        button.btn.btn-secondary(type='button' data-dismiss='modal') No
+                        a#deleteButton.btn.btn-primary Si
+        script
+            include scriptModal.js

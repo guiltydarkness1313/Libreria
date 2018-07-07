@@ -1,5 +1,48 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
+
+  div.row
+    div.col-sm-3.col-3-col-md-5.col-lg-3
+      div.container
+        H3 Nuestras categorias
+        ul.list-group.list-group-flush
+          li.list-group-item  Oregairu
+          li.list-group-item  Oreshura
+          li.list-group-item  Eromanga Sensei
+          li.list-group-item  Sword Art Online
+          li.list-group-item  Arifureta
+          
+    div.col-9.col-sm-9.col-md-9.col-lg-9
+      div#carousel.carousel.slide(data-ride="carousel")
+      ol.carousel-indicators
+        li(data-target="#carousel", data-slide-to="0", class="active")
+        li(data-target="#carousel", data-slide-to="1")
+        li(data-target="#carousel", data-slide-to="2")
+      div.carousel-inner
+        div.carousel-item.active
+          img.d-block.w-100(src="/images/1.png" alt="First slide")
+          div.carousel-caption.d-none.d-md-block
+            h5  Sólo los mejores libros
+            p   tenemos una variedad inmensa de libros para su gusto
+        div.carousel-item
+          img.d-block.w-100(src="/images/2.jpg" alt="Second slide")
+          div.carousel-caption.d-none.d-md-block
+            h5  No se limite a buscar más
+            p   tenemos todos los libros disponibles a su alcance
+        div.carousel-item
+          img.d-block.w-100(src="/images/3.png" alt="Third slide")
+          div.carousel-caption.d-none.d-md-block
+            h5  ¿Busca contenido extranjero?
+            p   Tenemos contratos 
+      a.carousel-control-prev(href="#carousel", role="button", data-slide="prev")
+        span.carousel-control-prev-icon(aria-hidden="true")
+        span.sr-only  Anterior
+      a.carousel-control-next(href="#carousel", role="button", data-slide="next")
+        span.carousel-control-next-icon(aria-hidden="true")
+        span.sr-only  Siguiente
+    
+  
+          
+        
+                
+            
