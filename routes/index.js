@@ -121,6 +121,7 @@ router.get("/detail",function (req,res) {
 });
 
 router.post("/detail",multer(multerConf).single('image'),function (req,res) {
+
     let item={
         image:"",
         name:"",
